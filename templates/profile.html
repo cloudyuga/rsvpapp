@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<title>RSVP App!</title>
+<body>
+<div align="center" >
+<h3><font color="maroon"> Host Name: {{ hostname }} </font>
+<font size="8" >
+ 
+</font> </h3>
+</div>
+<div align="center">
+<form action="/new" method='POST'>
+<h2> Welcome To RSVP! </h2> 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+
+
+Name: <input type="text" name="name">
+<br>
+<br> 
+ Email: <input type="text" name="email">
+<br>
+<br>
+<button type="Submit" onclick="alert('RSVP Succeeded!')" align="center" name="submit">Submit</button>
+</form>
+
+<h3> Visitor Count : {{counter}} </h3>
+{% for item in items %}
+
+<ul><li> {{ item.name }}  </li></ul>
+{% endfor %}
+
+</div>
+<div align="center">
+<form action="/csvdata" method='GET'>
+<button type="Submit" align="center" name="submit">Download CSV</button>
+</form>
+</div>
+</body>
+</html>

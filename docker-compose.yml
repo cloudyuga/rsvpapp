@@ -1,0 +1,32 @@
+version: '2'
+services:
+ mongodb:
+   image: mongo:3.3   
+   restart: always
+   expose:                 # expose ports without publishing to host machine,
+     - "27017" #only accessible to linked services, can specify only internal			# port 
+   environment:
+    MONGODB_USER: rsvpdata
+    MONGODB_DATABASE: rsvpdata
+    MONGODB_PASS: rsvpdata
+
+ web:
+    image: rsvpdata
+    ports:
+    - "5000:5000"
+    volumes: 
+    - .:/app
+    depends_on:
+      - mongodb
+    links:
+     - mongodb    
+    environment:
+      MONGODB_DB_HOST: db:27017
+      MONGODB_DB_PASSWORD: rsvpdata
+  
+ 
+ 
+ 
+    
+  
+
