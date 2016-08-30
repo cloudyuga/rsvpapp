@@ -10,7 +10,7 @@
 </div>
 <div align="center">
 <form action="/new" method='POST'>
-<h2> Welcome To RSVP! </h2> 
+<h2><a href="http://www.meetup.com/cloudyuga/"> CloudYuga Garage RSVP! </a></h2> 
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 
 
@@ -23,16 +23,18 @@ Name: <input type="text" name="name">
 <button type="Submit" onclick="alert('RSVP Succeeded!')" align="center" name="submit">Submit</button>
 </form>
 
-<h3> Visitor Count : {{counter}} </h3>
+<h3> RSVP Count : {{counter}} </h3>
 {% for item in items %}
 
-<ul><li> {{ item.name }}  </li></ul>
-{% endfor %}
 
+<p align="center"><a align="right">{{ item.name }} </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a align="right">{{ item.email }}</a></p>
+{% endfor %}
 </div>
+
+
 <div align="center">
 <form action="/csvdata" method='GET'>
-<button type="Submit" align="center" name="submit">Download CSV</button>
+<button type="Submit" align="center" name="submit">Download JSON</button>
 </form>
 </div>
 </body>
