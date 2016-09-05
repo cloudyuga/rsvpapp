@@ -20,9 +20,6 @@ services:
       - mongodb
     links:
      - mongodb    
-    environment:
-      MONGODB_DB_HOST: db:27017
-      MONGODB_DB_PASSWORD: rsvpdata
   
  
  
