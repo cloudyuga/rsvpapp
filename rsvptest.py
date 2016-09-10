@@ -50,7 +50,7 @@ def csvdata():
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
 
-connection.close()
+client.close()
 	
  #read in the JSON file into Python as a string
 #	rsvp_json =  open("/home/skhare/Downloads/rsvp.json").read()
