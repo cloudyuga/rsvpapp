@@ -27,8 +27,8 @@ def rsvpdata():
 @app.route('/new', methods=['POST'])
 def new():
 
-	if not re.match(r'[^@]+@[^@]+\.[^@]+', request.form['email']):
-		return render_template('errors/403.html'), 403
+	#if not re.match(r'[^@]+@[^@]+\.[^@]+', request.form['email']):
+	#	return render_template('errors/403.html'), 403
 
 	item_doc = {'name': request.form['name'],'email': request.form['email']}
 	db.rsvpdata.insert_one(item_doc)
