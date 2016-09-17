@@ -1,41 +1,67 @@
 <!doctype html>
 <html>
 <title>RSVP App!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+  
+  <script src= "{{ url_for('static', filename='jquery.min.js') }}"></script>
+  <script src= "{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 <body>
+<div class="jumbotron">
+<div class="container">
 <div align="center" >
-<h3><font color="maroon"> Host Name: {{ hostname }} </font>
+
+
+<h2><a href="http://www.meetup.com/cloudyuga/"> CloudYuga <img scr="{{ url_for('static', filename='cloudyuga.png') }}"> Garage RSVP! </a></h2> 
+<h3><font color="maroon"> Serving from Host: {{ hostname }} </font>
 <font size="8" >
- 
-</font> </h3>
-</div>
-<div align="center">
-<form action="/new" method='POST'>
-<h2><a href="http://www.meetup.com/cloudyuga/"> CloudYuga Garage RSVP! </a></h2> 
+ </font> </h3>
+
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-
-
-Name: <input type="text" name="name">
-<br>
-<br> 
- Email: <input type="text" name="email">
-<br>
-<br>
-<button type="Submit" onclick="alert('RSVP Succeeded!')" align="center" name="submit">Submit</button>
+<form action="/new" method='POST'>
+<div  class="form-group">
+      <label for="name">Name:</label>
+      <input  type="text" name="name"  id="name" placeholder="Enter name" >
+    </div>
+    <div  class="form-group">
+      <label for="email">Email:</label>
+      <input  type="text" name="email"  id="email" placeholder="Enter email">
+    </div>
+    <button type="Submit" onclick="alert('RSVP Succeeded!')" align="center" name="submit" class="btn btn-danger">Submit</button>
 </form>
-
 <h3> RSVP Count : {{counter}} </h3>
-{% for item in items %}
 
 
-<p align="center"><a align="right">{{ item.name }} </a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a align="right">{{ item.email }}</a></p>
-{% endfor %}
-</div>
 
+<table  style="width:40%" class="table">
+  <thead>
+    <tr >
+     <th class="text-center">Name</th>
+      <th class="text-center">Email</th>
+      </tr>
+  </thead>
+  {% for item in items %}
+  <tbody>
+    <tr class="danger">
+      <td class="text-center">{{ item.name }} </td>
+      <td class="text-center">{{ item.email }}</td>
+    {% endfor %}
+      </tr>
+    </tbody>
+</table>
 
-<div align="center">
 <form action="/csvdata" method='GET'>
-<button type="Submit" align="center" name="submit">Download JSON</button>
+<button type="Submit" align="center" name="submit" class="btn btn-info">Download JSON</button>
 </form>
 </div>
+</div>
+</div>
+<footer class="footer text-center">
+      <div class="container">
+        <ul class="list-inline">
+          <li class="text-muted">CloudYuga Technology Pvt. Ltd &copy; 2016</li>
+         </ul>
+      </div>
+    </footer>
 </body>
 </html>
