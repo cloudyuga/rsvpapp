@@ -2,21 +2,18 @@
 <html>
 <title>RSVP App!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
-  
-  <script src= "{{ url_for('static', filename='jquery.min.js') }}"></script>
-  <script src= "{{ url_for('static', filename='bootstrap.min.js') }}"></script>
+ <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
+ <link rel="icon" href="{{ url_for('static', filename='cloudyuga.png') }}" type="image/png" sizes="16x16">
+ <script type="text/javascript" src= "{{ url_for('static', filename='jquery.min.js') }}"></script>
+ <script type="text/javascript" src= "{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 <body>
 <div class="jumbotron">
 <div class="container">
 <div align="center" >
-
-
-<h2><a href="http://www.meetup.com/cloudyuga/"> CloudYuga <img scr="{{ url_for('static', filename='cloudyuga.png') }}"> Garage RSVP! </a></h2> 
+<h2><a href="http://www.meetup.com/cloudyuga/">CloudYuga <img src="{{ url_for('static', filename='cloudyuga.png') }}"/> Garage RSVP!</a></h2> 
 <h3><font color="maroon"> Serving from Host: {{ hostname }} </font>
 <font size="8" >
  </font> </h3>
-
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 <form action="/new" method='POST'>
 <div  class="form-group">
@@ -30,9 +27,6 @@
     <button type="Submit" onclick="alert('RSVP Succeeded!')" align="center" name="submit" class="btn btn-danger">Submit</button>
 </form>
 <h3> RSVP Count : {{counter}} </h3>
-
-
-
 <table  style="width:40%" class="table">
   <thead>
     <tr >
