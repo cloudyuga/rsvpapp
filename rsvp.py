@@ -36,7 +36,7 @@ def new():
 
 
 @app.route('/csv')
-def csvdata():
+def csv():
 
 	_items = db.rsvpdata.find()
 	k = dumps(_items)
