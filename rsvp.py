@@ -14,7 +14,7 @@ client = MongoClient('mongodb',27017)
 db = client.rsvpdata
 
 @app.route('/')
-def rsvpdata():
+def rsvp():
 	_items = db.rsvpdata.find()
 	items = [item for item in _items]
 	count = len(items)
@@ -32,10 +32,10 @@ def new():
 
 	item_doc = {'name': request.form['name'],'email': request.form['email']}
 	db.rsvpdata.insert_one(item_doc)
-	return redirect(url_for('rsvpdata'))
+	return redirect(url_for('rsvp'))
 
 
-@app.route('/csvdata')
+@app.route('/csv')
 def csvdata():
 
 	_items = db.rsvpdata.find()
