@@ -1,8 +1,8 @@
-from rsvpapp import rsvptest
+from rsvpapp import rsvp
 import pytest
 @pytest.fixture
 def self():
-    return rsvptest.app.test_client()
+    return rsvp.app.test_client()
     
 
 def test_urls(self):
