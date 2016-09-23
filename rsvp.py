@@ -51,27 +51,8 @@ if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
 
 client.close()
-	
- #read in the JSON file into Python as a string
-#	rsvp_json =  open("/home/skhare/Downloads/rsvp.json").read()
-#	
-#	print(rsvp_json)
-#	rsvp_parsed = json.loads(rsvp_json)
-#        print (rsvp_parsed)
-#	rsvpfile = open("/home/skhare/Downloads/rsvp.csv","r+")
-#	
-#	csvwriter = csv.writer(rsvpfile)
-#	count = 0
-#
-#	for rsvp1 in rsvpfile:
-#		if count == 0:
-#			header = rsvp1.keys()
-#			csvwriter.writerow(header)
-#			count += 1 
-#			csvwriter.writerow(rsvp1.values())
-#
-#	rsvpfile.close()
-	
+
+
 
 
 
