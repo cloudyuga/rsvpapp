@@ -8,6 +8,7 @@ services:
    volumes:
     - /mnt/db:/data/db
    environment:
+    MONGODB_HOST: mongodb
     MONGODB_USER: rsvpdata
     MONGODB_DATABASE: rsvpdata
     MONGODB_PASS: rsvpdata
