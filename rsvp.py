@@ -10,7 +10,9 @@ from bson.json_util import dumps
 import socket
 app = Flask(__name__)
 
-client = MongoClient('mongodb',27017)
+MONGODB_HOST=os.environ['MONGODB_HOST']
+print (MONGODB_HOST)
+client = MongoClient(MONGODB_HOST, 27017)
 db = client.rsvpdata
 
 @app.route('/')
