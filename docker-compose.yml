@@ -7,8 +7,7 @@ services:
      - "27017" #only accessible to linked services, can specify only internal			# port 
    volumes:
     - /mnt/db:/data/db
-   environment:
-    MONGODB_HOST: mongodb
+   environment:    
     MONGODB_USER: rsvpdata
     MONGODB_DATABASE: rsvpdata
     MONGODB_PASS: rsvpdata
@@ -23,7 +22,9 @@ services:
     depends_on:
       - mongodb
     links:
-     - mongodb    
+     - mongodb
+    environment:
+     MONGODB_HOST: mongodb
   
  
  
