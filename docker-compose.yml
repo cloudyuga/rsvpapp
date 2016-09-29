@@ -5,8 +5,8 @@ services:
    restart: always
    expose:                 # expose ports without publishing to host machine,
      - "27017" #only accessible to linked services, can specify only internal			# port 
-   volumes:
-    - /mnt/db:/data/db
+#   volumes:
+#    - /mnt/db:/data/db
    environment:    
     MONGODB_USER: rsvpdata
     MONGODB_DATABASE: rsvpdata
@@ -14,7 +14,7 @@ services:
 
 
  web:
-    image: teamcloudyuga/rsvpdata
+    image: teamcloudyuga/rsvpapp
     ports:
     - "5000:5000"
     volumes: 
