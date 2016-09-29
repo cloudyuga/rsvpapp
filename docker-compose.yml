@@ -25,10 +25,3 @@ services:
      - mongodb
     environment:
      MONGODB_HOST: mongodb
-  
- 
- 
- 
-    
-  
-
