@@ -36,19 +36,6 @@ def new():
 	db.rsvpdata.insert_one(item_doc)
 	return redirect(url_for('rsvp'))
 
-
-@app.route('/csv')
-def csv():
-
-	_items = db.rsvpdata.find()
-	k = dumps(_items)
-	j = json.dumps(k)
-	
-	response = make_response(j)
-	response.headers["Content-Disposition"] = "attachment; filename=rsvp.json"
-	return response
-
-
 if __name__ == '__main__':
 	app.run(host='0.0.0.0', debug=True)
 
