@@ -8,6 +8,7 @@ from flask import Flask, render_template, redirect, url_for, request,make_respon
 from pymongo import MongoClient
 from bson.json_util import dumps
 import socket
+
 app = Flask(__name__)
 
 MONGODB_HOST=os.environ['MONGODB_HOST']
