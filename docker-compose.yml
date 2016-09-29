@@ -8,10 +8,7 @@ services:
 #   volumes:
 #    - /mnt/db:/data/db
    environment:    
-    MONGODB_USER: rsvpdata
     MONGODB_DATABASE: rsvpdata
-    MONGODB_PASS: rsvpdata
-
 
  web:
     image: teamcloudyuga/rsvpapp
