@@ -2,8 +2,8 @@ version: '2'
 services:
  mongodb:
    image: mongo:3.3   
-   expose:                 # expose ports without publishing to host machine,
-     - "27017" #only accessible to linked services, can specify only internal			# port 
+   expose:                 
+     - "27017"
 #   volumes:
 #    - /mnt/db:/data/db
    environment:    
