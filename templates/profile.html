@@ -3,14 +3,16 @@
 <title>RSVP App!</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.min.css') }}">
- <link rel="icon" href="{{ url_for('static', filename='cloudyuga.png') }}" type="image/png" sizes="16x16">
+ <link rel="icon" href="{{ LOGO }}" type="image/png" sizes="16x16">
  <script type="text/javascript" src= "{{ url_for('static', filename='jquery.min.js') }}"></script>
  <script type="text/javascript" src= "{{ url_for('static', filename='bootstrap.min.js') }}"></script>
 <body>
 <div class="jumbotron">
 <div class="container">
-<div align="center" >
-<h2><a href="http://www.meetup.com/cloudyuga/">CloudYuga <img src="{{ url_for('static', filename='cloudyuga.png') }}"/> Garage RSVP!</a></h2> 
+<div align="center">
+<h1>Welcome</h1>
+<h2>To</h2>
+<h2><a href="{{ LINK }}">{{ TEXT1 }}<img src="{{ LOGO }}"/>{{ TEXT2 }}</a></h2> 
 <h3><font color="maroon"> Serving from Host: {{ hostname }} </font>
 <font size="8" >
  </font> </h3>
@@ -50,7 +52,7 @@
 <footer class="footer text-center">
       <div class="container">
         <ul class="list-inline">
-          <li class="text-muted">CloudYuga Technology Pvt. Ltd.</li>
+          <li class="text-muted">{{ COMPANY }}</li>
          </ul>
       </div>
     </footer>
