@@ -5,6 +5,12 @@ import os
 
 app = Flask(__name__)
 
+LINK=os.environ['LINK']
+TEXT1=os.environ['TEXT1']
+TEXT2=os.environ['TEXT2']
+LOGO=os.environ['LOGO']
+COMPANY=os.environ['COMPANY']
+
 MONGODB_HOST=os.environ['MONGODB_HOST']
 client = MongoClient(MONGODB_HOST, 27017)
 db = client.rsvpdata
@@ -17,7 +23,7 @@ def rsvp():
 	
 	hostname = socket.gethostname()
 
-	return render_template('profile.html', counter=count, hostname=hostname, items=items)
+	return render_template('profile.html', counter=count, hostname=hostname, items=items, TEXT1=TEXT1, TEXT2=TEXT2, LOGO=LOGO, COMPANY=COMPANY)
 	
 
 @app.route('/new', methods=['POST'])
