@@ -12,11 +12,16 @@ services:
     - rsvpnet
 
  web:
-   image: teamcloudyuga/rsvpapp
+   image: teamcloudyuga/rsvpapp:custom
    ports:
     - "5000:5000"
    environment:
     MONGODB_HOST: mongodb
+    LINK: http://www.meetup.com/cloudyuga/
+    TEXT1: CloudYuga 
+    TEXT2: Garage RSVP!
+    LOGO: https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/static/cloudyuga.png
+    COMPANY: CloudYuga Technology Pvt. Ltd.
    networks:
     - rsvpnet
 
