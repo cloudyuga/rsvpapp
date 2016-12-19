@@ -2,9 +2,6 @@ from rsvpapp import rsvp
 import unittest
 import mongomock
 import pytest
-from mock import Mock
-
-
 
 class RSVPApp(unittest.TestCase):
     def setUp(self):
