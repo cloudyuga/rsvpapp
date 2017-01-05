@@ -83,7 +83,7 @@ def api_rsvps():
 
         if 'name' not in doc:
             return '{"error": "name field is missing"}', 400
-        if 'email' not in doc
+        if 'email' not in doc:
             return '{"error": "email field is missing"}', 400
 
         rsvp = RSVP.new(name=doc['name'], email=doc['email'])
