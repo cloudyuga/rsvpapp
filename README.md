@@ -1,2 +1,2 @@
 # rsvpapp
-RSVP APP by CloudYuga
+RSVP app by CloudYuga
