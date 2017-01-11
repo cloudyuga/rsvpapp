@@ -1,6 +1,3 @@
 # rsvpapp
-RSVP app by CloudYugaTeam
+RSVP app by the CloudYugaTeam
 
-hello and welcome at cloudyuga
-
-Welcome back
