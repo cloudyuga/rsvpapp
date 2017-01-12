@@ -1,4 +1,4 @@
 # rsvpapp
-RSVP app by the CloudYugaTeam
+RSVP app by the CloudYugaTeam. Dockers and containers
 
-Devloped by CloudYuga
+Devloped by CloudYugaTeam, Bangalore 
