@@ -1,6 +1,6 @@
 # rsvpapp
 RSVP app by the CloudYugaTeam. Dockers and containers.
 
-Designed for Docker meetup
+Designed for Docker meetup member registration.
 
-Devloped by CloudYugaTeam, Bangalore 
+Devloped by CloudYugaTeam, Bangalore. 
