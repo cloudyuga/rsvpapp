@@ -9,4 +9,4 @@ ENV COMPANY CloudYuga Technology Pvt. Ltd.
 RUN pip3 install -r requirements.txt
 CMD python rsvp.py
 # Created by the CloudyugaTeam, CloudYuga, Bangalore 
-# Thank you
+# Thank you ok
