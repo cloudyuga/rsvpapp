@@ -7,13 +7,13 @@ import json
 
 app = Flask(__name__)
 
-LINK=os.environ['LINK']
-TEXT1=os.environ['TEXT1']
-TEXT2=os.environ['TEXT2']
-LOGO=os.environ['LOGO']
-COMPANY=os.environ['COMPANY']
+LINK=os.environ.get('LINK')
+TEXT1=os.environ.get('TEXT1')
+TEXT2=os.environ.get('TEXT2')
+LOGO=os.environ.get('LOGO')
+COMPANY=os.environ.get('COMPANY')
 
-MONGODB_HOST=os.environ['MONGODB_HOST']
+MONGODB_HOST=os.environ.get('MONGODB_HOST', 'localhost')
 client = MongoClient(MONGODB_HOST, 27017)
 db = client.rsvpdata
 
