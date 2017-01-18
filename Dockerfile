@@ -8,3 +8,5 @@ ENV LOGO https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/static/cloud
 ENV COMPANY CloudYuga Technology Pvt. Ltd.
 RUN pip3 install -r requirements.txt
 CMD python rsvp.py
+# Created by the CloudyugaTeam, CloudYuga, Bangalore 
+# Thank you ok
