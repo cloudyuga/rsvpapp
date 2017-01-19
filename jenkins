@@ -1,0 +1,19 @@
+node {
+   stage('build') {
+       echo "build"
+       git url:'https://github.com/vishalcloudyuga/rsvpapp.git'
+   }
+   stage('test') {
+       sh 'docker-compose -H $DOCKERSERVER:2375 up -d '
+   }
+   stage('staging') {
+       echo "Deployed?"
+       echo "check ip and port number"
+       echo " Applcation deloyed on $DOCKERSERVER at"  
+       sh 'docker-compose -H $DOCKERSERVER:2375 port web 5000 | cut -d: -f2'
+   }
+   input("looks ok ?")
+   stage('staging tear down') {
+       sh 'docker-compose -H $DOCKERSERVER:2375 down'            
+   }
+}
