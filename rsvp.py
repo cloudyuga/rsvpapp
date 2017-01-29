@@ -58,9 +58,7 @@ def rsvp():
     _items = db.rsvpdata.find()
     items = [item for item in _items]
     count = len(items)
-
     hostname = socket.gethostname()
-
     return render_template('profile.html', counter=count, hostname=hostname, items=items, TEXT1=TEXT1, TEXT2=TEXT2, LOGO=LOGO, COMPANY=COMPANY)
 
 
