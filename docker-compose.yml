@@ -4,15 +4,15 @@ services:
    image: mongo:3.3   
    expose:                 
      - "27017"
-#   volumes:
-#    - /mnt/db:/data/db
+   volumes:
+     - db_data:/data/db
    environment:    
     MONGODB_DATABASE: rsvpdata
    networks:
     - rsvpnet
 
  web:
-   image: teamcloudyuga/rsvpapp:custom
+   image: teamcloudyuga/rsvpapp:mooc
    ports:
     - "5000:5000"
    environment:
@@ -27,3 +27,6 @@ services:
 
 networks:
   rsvpnet:
+
+volumes:
+   db_data:
