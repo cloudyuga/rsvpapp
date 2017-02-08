@@ -1,0 +1,48 @@
+version: '3'
+services:
+ mongodb:
+   image: mongo:3.3
+   expose:
+     - "27017"
+   volumes:
+     - db_data:/data/db
+   environment:
+    MONGODB_DATABASE: rsvpdata
+   networks:
+    - rsvpnet
+
+ web:
+   image: nkhare/rsvpapp:mooc
+   ports:
+    - "5000:5000"
+   environment:
+    MONGODB_HOST: mongodb
+    LINK: http://www.meetup.com/cloudyuga/
+    TEXT1: CloudYuga
+    TEXT2: Garage RSVP!
+    LOGO: https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/static/cloudyuga.png
+    COMPANY: CloudYuga Technology Pvt. Ltd.
+   deploy:
+     replicas: 3
+     update_config:
+       parallelism: 2
+       delay: 30s
+   networks:
+    - rsvpnet
+
+ visualizer:
+    image: dockersamples/visualizer:stable
+    ports:
+      - "8080:8080"
+    stop_grace_period: 1m30s
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  rsvpnet:
+
+volumes:
+   db_data:
