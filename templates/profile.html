@@ -29,13 +29,12 @@
 {% with messages = get_flashed_messages() %}
  {% if messages %}
    {% for message in messages %}
-   <div class="alert alert-warning alert-dismissible" role="alert">
-     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-     <span aria-hidden="true">&times;</span>
+   <script>
+    $(document).ready(function(){
+       alert('{{message}}');
+    });
+   </script>
 
-     </button>
-      {{message}}
-   </div>
    {% endfor %}
  {% endif %}
 {% endwith %}
