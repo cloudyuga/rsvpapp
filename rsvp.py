@@ -6,6 +6,8 @@ import os
 import json
 
 app = Flask(__name__)
+app.config['SESSION_TYPE'] = 'memcached'
+app.config['SECRET_KEY'] = 'super secret key'
 
 LINK=os.environ.get('LINK', "www.cloudyuga.guru")
 TEXT1=os.environ.get('TEXT1', "CloudYuga")
@@ -67,8 +69,10 @@ def rsvp():
 def new():
     item_doc = {'name': request.form['name'], 'email': request.form['email']}
     db.rsvpdata.insert_one(item_doc)
-    return redirect(url_for('rsvp'))
-
+    submit = 'RSVP Succeeded!'
+    flash("RSVP Succeeded!")
+    return redirect(url_for('rsvp',submit=submit))
+    
 @app.route('/api/rsvps', methods=['GET', 'POST'])
 def api_rsvps():
     if request.method == 'GET':
