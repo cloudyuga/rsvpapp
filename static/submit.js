@@ -9,7 +9,7 @@ if (name != '' && email != '') {
 if (email.match(emailReg)) {
 return true;
 } else {
-alert("Invalid Email Address...!!!");
+alert("Invalid email address...!!!");
 return false;
 }
 } else {
