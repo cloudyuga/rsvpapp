@@ -6,7 +6,7 @@
  <link rel="icon" href="{{ LOGO }}" type="image/png" sizes="16x16">
  <script type="text/javascript" src= "{{ url_for('static', filename='jquery.min.js') }}"></script>
  <script type="text/javascript" src= "{{ url_for('static', filename='bootstrap.min.js') }}"></script>
-  <script type="text/javascript" src= "{{ url_for('static', filename='submit.js') }}"></script>
+ <script type="text/javascript" src= "{{ url_for('static', filename='submit.js') }}"></script>
 <body>
 <div class="jumbotron">
 <div class="container">
@@ -34,7 +34,6 @@
        alert('{{message}}');
     });
    </script>
-
    {% endfor %}
  {% endif %}
 {% endwith %}
