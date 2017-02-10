@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect, url_for, request,make_response
+from flask import Flask, render_template, redirect, url_for, request,make_response, flash
 from pymongo import MongoClient
 from bson.objectid import ObjectId
 import socket
@@ -6,6 +6,14 @@ import os
 import json
 
 app = Flask(__name__)
+
+# A list of configuration keys also understood by the extension.
+# Use NullSessionInterface (default).
+# If we do not want to configure in a different SESSION_TYPE, this will help to be used to generate nicer error messages. 
+# May this will allow read-only access to the empty session but fail on setting.
+app.config['SESSION_TYPE'] = 'null'
+# The secret key.
+app.config['SECRET_KEY'] = 'any secret key'
 
 LINK=os.environ.get('LINK', "www.cloudyuga.guru")
 TEXT1=os.environ.get('TEXT1', "CloudYuga")
@@ -67,8 +75,10 @@ def rsvp():
 def new():
     item_doc = {'name': request.form['name'], 'email': request.form['email']}
     db.rsvpdata.insert_one(item_doc)
-    return redirect(url_for('rsvp'))
-
+    submit = 'RSVP Succeeded!'
+    flash("RSVP Succeeded!")
+    return redirect(url_for('rsvp',submit=submit))
+    
 @app.route('/api/rsvps', methods=['GET', 'POST'])
 def api_rsvps():
     if request.method == 'GET':
