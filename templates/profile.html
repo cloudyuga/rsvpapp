@@ -11,7 +11,7 @@
 <div class="jumbotron">
 <div class="container">
 <div align="center">
-<h2><a href="{{ LINK }}">{{ TEXT1 }}<img src="{{ LOGO }}"/>{{ TEXT2 }}</a></h2> 
+<h2><a href="{{ LINK }}">{{ TEXT1 }}<img src="{{ LOGO }}"/>{{ TEXT2 }}</a></h2>
 <h3><font color="maroon"> Serving from Host: {{ hostname }} </font>
 <font size="8" >
  </font> </h3>
@@ -29,11 +29,13 @@
 {% with messages = get_flashed_messages() %}
  {% if messages %}
    {% for message in messages %}
-   <script>
-    $(document).ready(function(){
-       alert('{{message}}');
-    });
-   </script>
+
+<script>
+ $(document).ready(function(){
+    alert('{{message}}');
+ });
+</script>
+
    {% endfor %}
  {% endif %}
 {% endwith %}
