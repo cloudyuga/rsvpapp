@@ -6,8 +6,14 @@ import os
 import json
 
 app = Flask(__name__)
-app.config['SESSION_TYPE'] = 'memcached'
-app.config['SECRET_KEY'] = 'super secret key'
+
+# A list of configuration keys also understood by the extension.
+# Use NullSessionInterface (default).
+# If we do not want to configure in a different SESSION_TYPE, this will help to be used to generate nicer error messages. 
+# May this will allow read-only access to the empty session but fail on setting.
+app.config['SESSION_TYPE'] = 'null'
+# The secret key.
+app.config['SECRET_KEY'] = 'any secret key'
 
 LINK=os.environ.get('LINK', "www.cloudyuga.guru")
 TEXT1=os.environ.get('TEXT1', "CloudYuga")
