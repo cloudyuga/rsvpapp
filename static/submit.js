@@ -1,5 +1,3 @@
-  GNU nano 2.2.6                                   File: static/submit.js
-
 function ValidationEvent() {
 var name = document.getElementById("name").value;
 var email = document.getElementById("email").value;
@@ -9,7 +7,7 @@ if (name != '' && email != '') {
 if (email.match(emailReg)) {
 return true;
 } else {
-alert("Invalid email address...!!!");
+alert("Invalid Email Address...!!!");
 return false;
 }
 } else {
