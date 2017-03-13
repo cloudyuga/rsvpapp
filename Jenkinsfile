@@ -28,6 +28,21 @@ stage('deploy the image to staging server') {
         withDockerServer([credentialsId: 'staging-server', uri: "tcp://${stagingurl}:2376"]) {
           sh 'docker-compose -p rsvp_staging down -v'
         }
-   }   
+   }  
+  
+   stage('deploy in production'){
+   withDockerServer([credentialsId: 'production', uri: "tcp://${productionurl}:2376"]) {
+
+          sh 'docker stack deploy -c docker-stack.yaml myrsvpapp'
+
+          }
+   input "Check application running at http://${productionurl}:5000"
+   withDockerServer([credentialsId: 'production', uri: "tcp://${productionurl}:2376"]) {
+
+            sh 'docker stack down myrsvpapp'
+
+      }
+
+   } 
    
 }
