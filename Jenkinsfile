@@ -1,22 +1,22 @@
 stage('test') {
 node ('docker-jenkins-slave'){
-  git 'https://github.com/vishalcloudyuga/rsvpapp.git'
+  git "${gitrepo}"
   sh 'chmod a+x ./run_test.sh'
   sh './run_test.sh'
 }
 }
 
 node() {
-git 'https://github.com/vishalcloudyuga/rsvpapp.git'
+git "${gitrepo}"
 stage('build the image') {
   withDockerServer([credentialsId: 'dockerhost', uri: "tcp://${dockerhosturl}:2376"]) {
-    docker.build 'coolvbgarya/rsvpapp:mooc'
+    docker.build "${dockerhub}/rsvpapp:mooc"
   }
 }
 stage('push the image to DockerHub') {
 withDockerServer([credentialsId: 'dockerhost', uri: "tcp://${dockerhosturl}:2376"]) {
   withDockerRegistry([credentialsId: 'dockerhub_auth']) {
-    docker.image('coolvbgarya/rsvpapp:mooc').push()
+    docker.image("${dockerhub}/rsvpapp:mooc").push()
    }
 }        
 }
