@@ -21,7 +21,8 @@ withDockerServer([credentialsId: 'dockerhost', uri: "tcp://${dockerhosturl}:2376
 }        
 }
 stage('deploy the image to staging server') {
-        withDockerServer([credentialsId: 'staging-server', uri: "tcp://${stagingurl}:2376"]){ 
+        withDockerServer([credentialsId: 'staging-server', uri: "tcp://${stagingurl}:2376"]){
+          sh 'docker-compose pull'
           sh 'docker-compose -p rsvp_staging up -d'
         }
         input "Check application running at http://${stagingurl}:5000 looking good?"
