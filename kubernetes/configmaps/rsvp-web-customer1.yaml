@@ -32,3 +32,4 @@ spec:
               key: COMPANY
         ports:
         - containerPort: 5000
+          name: web-port
