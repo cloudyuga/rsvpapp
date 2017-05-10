@@ -1,6 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request,make_response
 from pymongo import MongoClient
 from bson.objectid import ObjectId
+from flask_prometheus import monitor 
 import socket
 import os
 import json
@@ -102,4 +103,5 @@ def api_rsvp(id):
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug=True)
+    monitor(app, port=8000)
+    app.run(host='0.0.0.0')

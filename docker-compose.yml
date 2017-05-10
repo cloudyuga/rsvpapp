@@ -12,9 +12,10 @@ services:
     - rsvpnet
 
  web:
-   image: teamcloudyuga/rsvpapp:mooc
+   image: teamcloudyuga/rsvpapp:prometheus
    ports:
     - "5000:5000"
+    - "8000:8000"
    environment:
     MONGODB_HOST: mongodb
     LINK: http://www.meetup.com/cloudyuga/
