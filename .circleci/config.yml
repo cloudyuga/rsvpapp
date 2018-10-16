@@ -45,7 +45,7 @@ jobs:
       - run:
           name: build image
           command: |
-            docker build -t nkhare/rsvpapp:dev .
+            docker build -t $DOCKERHUB_USER/rsvpapp:dev .
  
   push:
     machine:
@@ -57,9 +57,9 @@ jobs:
       - run:
           name: Push image
           command: |
-            docker build -t nkhare/rsvpapp:dev .
-            cat my_password.txt | docker login --username nkhare --password-stdin
-            docker push nkhare/rsvpapp:dev
+            docker build -t $DOCKERHUB_USER/rsvpapp:dev .
+            echo $DOCKERHUB_PASSWORD | docker login --username $DOCKERHUB_USER --password-stdin
+            docker push $DOCKERHUB_USER/rsvpapp:dev
 
 workflows:
   version: 2
