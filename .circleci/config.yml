@@ -67,8 +67,10 @@ workflows:
     jobs:
       - test
       - build:
+          context: DOCKERHUB
           requires:
             - test 
       - push:
+          context: DOCKERHUB
           requires:
             - build
