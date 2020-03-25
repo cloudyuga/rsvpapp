@@ -54,6 +54,7 @@ spec:
           sh "git config --global user.email 'atul@cloudyuga.guru'"
 
           dir("kustomize-demo") {
+            sh "git checkout 9-putting-it-all-together-fixing-labels"
             sh "cd ./overlays/staging && kustomize edit set image atul7cloudyuga/rsvp-demo:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
