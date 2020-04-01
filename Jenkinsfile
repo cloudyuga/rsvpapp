@@ -17,7 +17,7 @@ pipeline {
           // Build new image
           sh "until docker ps; do sleep 3; done && docker build -t atul7cloudyuga/rsvp-demo:${env.GIT_COMMIT} ."
           // Publish new image
-          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push $DOCKERHUB_REPO:${env.GIT_COMMIT}"
+          sh "docker login --username $DOCKERHUB_CREDS_USR --password $DOCKERHUB_CREDS_PSW && docker push ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
         }
       }
     }
@@ -38,7 +38,7 @@ pipeline {
 
           dir("kustomize-demo") {
               sh "git checkout ${env.GIT_REPO_BRANCH}"
-              sh "cd ./overlays/staging && kustomize edit set image ${env.DOCKERHUB_REPO}:${env.GIT_COMMIT}"
+              sh "cd ./overlays/staging && kustomize edit set image ${env.IMAGE_REPO}:${env.GIT_COMMIT}"
             sh "git commit -am 'Publish new version' && git push || echo 'no changes'"
           }
         }
