@@ -10,6 +10,8 @@ app = Flask(__name__)
 LINK=os.environ.get('LINK', "www.cloudyuga.guru")
 TEXT1=os.environ.get('TEXT1', "CloudYuga")
 TEXT2=os.environ.get('TEXT2', "Garage RSVP")
+#POD_NAME=os.environ.get('POD_NAME')
+#POD_IP=os.environ.get('POD_IP')
 LOGO=os.environ.get('LOGO', "https://raw.githubusercontent.com/cloudyuga/rsvpapp/master/static/cloudyuga.png")
 COMPANY=os.environ.get('COMPANY', "CloudYuga Technology Pvt. Ltd.")
 
@@ -58,10 +60,12 @@ def rsvp():
     _items = db.rsvpdata.find()
     items = [item for item in _items]
     count = len(items)
-    hostname = socket.gethostname()
+    //hostname = socket.gethostname()
+    hostname = os.environ.get('POD_NAME')
+    hostIP = os.environ.get('POD_IP')
     return render_template('profile.html', counter=count, hostname=hostname,\
                            items=items, TEXT1=TEXT1, TEXT2=TEXT2, LOGO=LOGO,\
-                           COMPANY=COMPANY)
+                           COMPANY=COMPANY, hostIP=hostIP )
 
 @app.route('/new', methods=['POST'])
 def new():
