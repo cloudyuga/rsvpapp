@@ -58,10 +58,17 @@ def rsvp():
     _items = db.rsvpdata.find()
     items = [item for item in _items]
     count = len(items)
-    hostname = socket.gethostname()
+    # Open Files to read
+    podNameFile=open("/etc/podinfo/POD_NAME", "r")
+    podNsFile=open("/etc/podinfo/NAMESPACE", "r")
+    hostname = podNameFile.readlines() #Added for Downward API
+    namespace = podNsFile.readlines() #Added for Downward API
+    # Close open files
+    podNameFile.close()
+    podNsFile.close()
     return render_template('profile.html', counter=count, hostname=hostname,\
                            items=items, TEXT1=TEXT1, TEXT2=TEXT2, LOGO=LOGO,\
-                           COMPANY=COMPANY)
+                           COMPANY=COMPANY , namespace=namespace )
 
 @app.route('/new', methods=['POST'])
 def new():
