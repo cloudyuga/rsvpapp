@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 - Install mongodb for the database.One can use mongodb as a docker container also.
 ```
-docker container run -d -p 27017:27017 –name=mongodb mongo:3.6
+docker container run -d -p 27017:27017 --name=mongodb mongo:3.6
 ```
 - Run the python app locally
 ```
