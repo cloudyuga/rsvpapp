@@ -12,7 +12,7 @@ services:
     - rsvpnet
 
  web:
-   image: registry.cloudyuga.guru/library/rsvpapp:latest
+   image: registry.cloudyuga.guru/library/rsvpapp:v1
    ports:
     - "5000:5000"
    environment:
