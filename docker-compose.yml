@@ -1,7 +1,7 @@
-version: '2'
+version: '3'
 services:
  mongodb:
-   image: mongo:3.3   
+   image: mongo:3.6   
    expose:                 
      - "27017"
    volumes:
@@ -12,7 +12,7 @@ services:
     - rsvpnet
 
  web:
-   image: teamcloudyuga/rsvpapp:mooc
+   image: registry.cloudyuga.guru/library/rsvpapp:v1
    ports:
     - "5000:5000"
    environment:

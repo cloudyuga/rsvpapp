@@ -1,0 +1,17 @@
+LICENSE
+README.md
+Dockerfile
+.git
+__pycache__
+.tox
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.Python
+env
+
+
